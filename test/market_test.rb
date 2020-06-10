@@ -51,9 +51,9 @@ class MarketTest < Minitest::Test
     assert_equal expected, @market.vendors_that_sell(@banana_nice_cream)
   end
 
-  def test_it_can_get_potential_revenue
-    assert_equal 29.75, @rocky_mountain_fresh.potential_revenue
-    assert_equal 345.00, @ba_nom_a_nom.potential_revenue
-    assert_equal 48.75, @palisade_peach_shack.potential_revenue
+  def test_it_has_sorted_item_list
+    @palisade_peach_shack.stock(@peach_ras_nice_cream, 10)
+    expected = ({})
+    assert_equal expected, @market.total_inventory
   end
 end
