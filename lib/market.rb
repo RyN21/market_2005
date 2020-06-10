@@ -22,4 +22,10 @@ class Market
       vendor.inventory.include?(item)
     end
   end
+
+  def total_inventory
+    vendor.group_by do |vendor|
+      vendor.inventory.keys
+    end
+  end
 end

@@ -51,9 +51,10 @@ class MarketTest < Minitest::Test
     assert_equal expected, @market.vendors_that_sell(@banana_nice_cream)
   end
 
-  def test_it_has_sorted_item_list
+  def test_it_has_total_inventory
     @palisade_peach_shack.stock(@peach_ras_nice_cream, 10)
-    expected = ({})
+
+    expected = ({@peach => {quantity: 100, vendors: [@rocky_mountain_fresh, @palisade_peach_shack]}, @tomato => {quantity: 7, vendors: [@rocky_mountain_fresh]}, @peach_ras_nice_cream => {quantity: 35, vendors: [@ba_nom_a_nom, @palisade_peach_shack]}, @banana_nice_cream => {quantity: 50, vendors: [@ba_nom_a_nom]}})
     assert_equal expected, @market.total_inventory
   end
 end
