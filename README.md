@@ -25,17 +25,7 @@ Use TDD to create `Item` and `Vendor` classes that responds to the following int
 
 ```ruby
 
-pry(main)> vendor = Vendor.new("Rocky Mountain Fresh")
-#=> #<Vendor:0x00007f85683152f0...>
 
-pry(main)> vendor.name
-#=> "Rocky Mountain Fresh"
-
-pry(main)> vendor.inventory
-#=> {}
-
-pry(main)> vendor.check_stock(item1)
-#=> 0
 
 pry(main)> vendor.stock(item1, 30)
 
