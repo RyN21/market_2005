@@ -24,23 +24,6 @@ The Market will need to keep track of its Vendors and their Items. Each Vendor w
 Use TDD to create `Item` and `Vendor` classes that responds to the following interaction pattern:
 
 ```ruby
-pry(main)> require './lib/item'
-#=> true
-
-pry(main)> require './lib/vendor'
-#=> true
-
-pry(main)> item1 = Item.new({name: 'Peach', price: "$0.75"})
-#=> #<Item:0x007f9c56740d48...>
-
-pry(main)> item2 = Item.new({name: 'Tomato', price: '$0.50'})
-#=> #<Item:0x007f9c565c0ce8...>
-
-pry(main)> item2.name
-#=> "Tomato"
-
-pry(main)> item2.price
-#=> 0.50
 
 pry(main)> vendor = Vendor.new("Rocky Mountain Fresh")
 #=> #<Vendor:0x00007f85683152f0...>
