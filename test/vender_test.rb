@@ -40,5 +40,4 @@ class VendorTest < Minitest::Test
     expected = ({@peach => 30})
     assert_equal expected, @vendor.inventory
   end
-
 end
