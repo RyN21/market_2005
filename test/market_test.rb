@@ -24,12 +24,12 @@ class MarketTest < Minitest::Test
     @ba_nom_a_nom.stock(@peach_ras_nice_cream, 25)
     @palisade_peach_shack.stock(@peach, 65)
 
-    # @market.add_vendor(@rocky_mountain_fresh)
-    # @market.add_vendor(@ba_nom_a_nom)
-    # @market.add_vendor(@palisade_peach_shack)
+    @market.add_vendor(@rocky_mountain_fresh)
+    @market.add_vendor(@ba_nom_a_nom)
+    @market.add_vendor(@palisade_peach_shack)
 
     assert_instance_of Market, @market
-    # expected = [@rocky_mountain_fresh, @ba_nom_a_nom, @palisade_peach_shack]
-    # assert_equal expected, @market.vendor
+    expected = [@rocky_mountain_fresh, @ba_nom_a_nom, @palisade_peach_shack]
+    assert_equal expected, @market.vendor
   end
 end
