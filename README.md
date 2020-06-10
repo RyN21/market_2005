@@ -27,10 +27,6 @@ Use TDD to create `Item` and `Vendor` classes that responds to the following int
 
 
 
-pry(main)> vendor.stock(item1, 30)
-
-pry(main)> vendor.inventory
-#=> {#<Item:0x007f9c56740d48...> => 30}
 
 pry(main)> vendor.check_stock(item1)
 #=> 30

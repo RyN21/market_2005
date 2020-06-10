@@ -30,12 +30,18 @@ class VendorTest < Minitest::Test
     expected = ({@peach => 30})
     assert_equal expected, @vendor.inventory
   end
+
+  def test_it_can_check_new_stock
+    @vendor = Vendor.new("Rocky Mountain Fresh")
+    @peach = Item.new({name: 'Peach', price: "$0.75"})
+    @tomato = Item.new({name: 'Tomato', price: '$0.50'})
+    @vendor.stock(@peach, 30)
+    
+    assert_equal 30, @vendor.check_stock(@peach)
+  end
 end
 
 
-# #=> {#<Item:0x007f9c56740d48...> => 30}
-#
-# pry(main)> vendor.check_stock(item1)
 # #=> 30
 #
 # pry(main)> vendor.stock(item1, 25)
