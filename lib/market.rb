@@ -10,4 +10,10 @@ class Market
   def add_vendor(vendor)
     @vendor << vendor
   end
+
+  def vendor_names
+    @vendor.map do |vendor|
+      vendor.name
+    end
+  end
 end
