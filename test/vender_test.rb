@@ -13,14 +13,22 @@ class VendorTest < Minitest::Test
     assert_equal ({}), @vendor.inventory
   end
 
-  def test_it_can_check_stock
+  def test_it_can_check_stock_and_inventory
     @vendor = Vendor.new("Rocky Mountain Fresh")
     @peach = Item.new({name: 'Peach', price: "$0.75"})
     @tomato = Item.new({name: 'Tomato', price: '$0.50'})
 
     assert_equal 0, @vendor.check_stock(@peach)
+
     @vendor.stock(@peach, 30)
     assert_equal 30, @vendor.check_stock(@peach)
+
+    @vendor.stock(@peach, 25)
+    assert_equal 55, @vendor.check_stock(@peach)
+
+    @vendor.stock(@tomato, 12)
+    expected = ({@peach => 55, @tomato => 12})
+    assert_equal expected, @vendor.inventory
   end
 
   def test_it_can_stock
@@ -34,17 +42,3 @@ class VendorTest < Minitest::Test
   end
 
 end
-
-
-# #=> 30
-#
-# pry(main)> vendor.stock(item1, 25)
-#
-# pry(main)> vendor.check_stock(item1)
-# #=> 55
-#
-# pry(main)> vendor.stock(item2, 12)
-#
-# pry(main)> vendor.inventory
-# #=> {#<Item:0x007f9c56740d48...> => 55, #<Item:0x007f9c565c0ce8...> => 12}
-# ```
