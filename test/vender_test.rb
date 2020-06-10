@@ -25,9 +25,9 @@ class VendorTest < Minitest::Test
     @vendor = Vendor.new("Rocky Mountain Fresh")
     @peach = Item.new({name: 'Peach', price: "$0.75"})
     @tomato = Item.new({name: 'Tomato', price: '$0.50'})
-    @vendor.stock(@item1, 30)
+    @vendor.stock(@peach, 30)
 
-    expected = ({:@item1 => 30})
+    expected = ({@peach => 30})
     assert_equal expected, @vendor.inventory
   end
 end
